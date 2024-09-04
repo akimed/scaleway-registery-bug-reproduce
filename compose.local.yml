@@ -1,0 +1,16 @@
+services:
+  frontend:
+    build:
+      context: packages/webapp
+      tags:
+       - rg.fr-par.scw.cloud/namespace-nice-nightingale/frontend:latest
+      platforms:
+        - "linux/amd64"
+  backend:
+    build:
+      context: .
+      dockerfile: packages/backend/Dockerfile
+      tags:
+       - rg.fr-par.scw.cloud/namespace-nice-nightingale/backend:latest
+      platforms:
+        - "linux/amd64"

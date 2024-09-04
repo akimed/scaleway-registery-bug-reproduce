@@ -1,0 +1,14 @@
+services:
+  frontend:
+    image: rg.fr-par.scw.cloud/namespace-nice-nightingale/frontend:${IMAGE_TAG:-dev}
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+  backend:
+    image: rg.fr-par.scw.cloud/namespace-nice-nightingale/backend:${IMAGE_TAG:-dev}
+    ports:
+      - 8000:8080
+    restart: unless-stopped
+    volumes:
+      - ./assets:/app/assets
+      - ./.db:/app/.db
